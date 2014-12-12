@@ -1,0 +1,71 @@
+/* Template based on http://udacity.github.io/frontend-nanodegree-styleguide/ */
+/* TODO: delete this comment block after reviewing
+Use valid CSS
+	avoid user agent detection as well as CSS "hacks" - try other options first
+All lower case
+Use meaningful or generic ID and class names
+Avoid qualifying ID and class names with type selectors
+	only when really needed (helper classes)
+Use shorthand properties where possible
+	padding: not padding-bottom: + padding-left: + padding-right: + padding-top:
+Omit unit specification after 0 values
+	margin 0; not margin:0em; or margin 0px;
+Include leading 0 s in decimal values for readability
+	font-size: 0.8em; not font-size: .8em;
+Use 3 character hexadecimal notation where possible
+	color: #ebc; not color: #eebbcc;
+Separate words in ID and class names by a hyphen
+	error-status not error_status or errorStatus or ...
+Indent all block content
+Use a semicolon after every declaration for consistency and extensibility
+Always use a space after property name's colon, but no space between property and colon
+Always use a single space between the last selector and the opening brace that begins the declaration block.
+	".block-name {" not ".block-name{" or ".block-name{new-ling}{"
+Always start a new line for each selector and declaration.
+	h1,
+	h2,
+	h3 {
+		not
+	h1, h2, h3 {
+Always put a blank line (two line breaks) between rules
+Use double quotation marks for attribute selectors or property values. Do not use quotation marks in URI values (url()).
+If possible, group style sheet sections together by using comments.  Separate sections with {multiple} new lines.
+*/
+
+/* TODO: remove following block indent examples after review */
+@media screen, projection {
+    html {
+        background: #fff;
+        color: #444;
+    }
+}
+
+
+/* Header */
+.header {
+    …
+}
+
+.header-nav {
+    …
+}
+
+
+/* Content */
+.gallery {
+    …
+}
+
+.gallery-img {
+    …
+}
+
+
+/* Footer */
+.footer {
+    …
+}
+
+.footer-nav {
+    …
+}
