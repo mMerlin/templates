@@ -32,6 +32,22 @@ Use double quotation marks for attribute selectors or property values. Do not us
 If possible, group style sheet sections together by using comments.  Separate sections with {multiple} new lines.
 */
 
+/* Use Alternate to box model, so specified sized includes border and padding */
+* {
+	/* -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box; get from autoprefixer? */
+	box-sizing: border-box;
+}
+
+.app { /* guide to flexbox http://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+	display: -webkit-flex; /* For Safari, Chrome 21.0 .. 29.0, Opera 15-19 */
+	display: -ms-flex; /* Older specification implemented by IE 10 */
+	display: -moz-flex; /* Firefox 18.0; up to 22, user needs layout.css.flexbox.enabled true, 22 to 27 default is true */
+	display: flex; /* Enough for Chrome 29+, IE 11+, Mozilla 28+ */
+	flex-flow: row wrap;
+}
+
 /* TODO: remove following block indent examples after review */
 @media screen, projection {
     html {
@@ -68,4 +84,18 @@ If possible, group style sheet sections together by using comments.  Separate se
 
 .footer-nav {
     …
+}
+
+
+/* Snippets */
+/* TODO: delete the snippets when project is well started */
+.reading-area {
+	overflow: auto; /* create scroll bar when content overflows max dimensions */
+}
+
+/* Responsive design media queries */
+@media only screen and (max-width: 300px) and (orientation: landscape) {
+	html {
+
+	}
 }
