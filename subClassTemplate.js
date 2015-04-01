@@ -1,4 +1,10 @@
 /*jslint browser: true, devel: true, indent: 2, maxlen: 82 */
+/* jshint bitwise: true, curly: true, eqeqeq: true, es3: false,
+   forin: true, freeze: true, futurehostile: true, latedef: true,
+   maxcomplexity: 8, maxstatements: 35, noarg: true, nocomma: true,
+   noempty: true, nonew: true, singleGroups: true, undef: true, unused: true,
+   plusplus: true, strict: true, browser: true, devel: true
+*/
 /*global $, jQuery */
 // Execute anonymous function when DOM is ready
 $(function () {
@@ -10,26 +16,19 @@ $(function () {
    *  Shared Class properties (variables and functions in .prototype)
    *  Instance properties (this.) (variables)
    *   - Instance methods would work, but not typically needed/wanted
-   *  Private variables and functions (creator function closure scope)
+   *  Private class variables and functions (creator function closure scope)
    *  Inherited properties (instance and shared)
    */
 
   /**
    * MyClass class description
    *
-   * NOTE: The class (variable) name here must match the name that the closure
-   *   scope wrapper assigns the result to.  Any dump (console.log) of an
-   *   instance will show the class name created here.  Which would be expected
-   *   to be the same as the 'external' class name.
-   * NOTE: jslint complains about MyClass variable redefinition due to using
-   *   the same name in the outer scope, but that is the intended functionality.
-   *
    * @param {object} SuperClass the class to inherit from
    * @param {array|object}  extraMethods mixin methods container(s)
    */
-  MyClass = (function (SuperClass, extraMethods) {
+  (function (SuperClass, extraMethods) {
     //Superclass could be hard-coded, but passing it in seems more flexible
-    var MyClass, privateData;
+    var privateData;
 
     // {Properties of} a single object can hold all class private data, or
     // separate variables can be used.
@@ -43,10 +42,13 @@ $(function () {
     };
 
     /**
-    * MyClass class constructor description
-    *
-    * constructor parameter templates and descriptions
-    **/
+     * MyClass class constructor description
+     *
+     * This is the actual MyClass constructor function, being created inside of
+     * the anonymous function, with access to the function scope objects
+     *
+     * @param {object} ?      constructor parameter description
+     */
     MyClass = function () {// constructor parameters...
       SuperClass.call(this);// , arguments... for SuperClass constructor
       // hard-coded initialization, from parameters, defaults, or calculations
@@ -90,8 +92,6 @@ $(function () {
       privateData.privateMethod1();// method arguments...
       this.instanceProp1 = {};// access, create, update instance properties
     };
-
-    return MyClass;// The subclassed object {constructor function}
   }(Object, Function.prototype));// ./(function () {}())
   // Pass the desired super class to the class creator function, as well as an
   // object [or array of objects] containing additional methods (actually
@@ -100,12 +100,12 @@ $(function () {
   myInstance = new MyClass();// constructor arguments...
   myInstance.sharedMethod1();// method arguments...
   console.log('::MyClass::');
-  console.log(MyClass);// The construcor function
+  console.log(MyClass);// The constructor function
   console.log('::myInstance::');
   console.log(myInstance);// MyClass object including shared methods
   console.log('::myInstance.constructor::');
   console.log(myInstance.constructor);// function (MyClass)
-  console.log('::typof myInstance.privateData::');
+  console.log('::typeof myInstance.privateData::');
   console.log(typeof myInstance.privateData); // undefined
   console.log('::myInstance instanceof MyClass::');
   console.log(myInstance instanceof MyClass);
