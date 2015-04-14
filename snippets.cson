@@ -1,0 +1,47 @@
+# atom editor snippets
+
+# in open target file type (scope) (Edit|select grammer):
+# atom | {alt} View | Developer | Toggle Developer Tools (ctrl+shift+I)
+# open developer tools:
+# console tab
+#?? editor: Log Cursor Scope
+# atom.grammers.grammersByScopeName
+## expand reported object to see available grammers
+# expand js snippet "scope", and paste into the console, changing the final line
+# parameter to see what scope(s) are associated with a file extension
+# alternate
+# atom | {alt} Package | Settings View | Manage Packages | {search} {language}
+# {language-{language}} Settings : {language} Grammer; Scope
+
+# text.html.basic
+'.text.html.basic':
+  'head':
+    'prefix': 'xhead'
+    'body': """
+    	<meta charset="${1:utf-8}">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<title>${2:Title Text}</title>$0
+    """
+
+'.source.js':
+  'Scope By Extension':
+    'prefix': 'scope'
+    'body': """
+      (function(ex){
+        atom.grammars.grammars.forEach(function(g1){
+          g1.fileTypes.forEach(function(f){
+            if(f===ex){
+              console.log(g1.name,'is scope',g1.scopeName);
+              atom.grammars.grammars.forEach(function(g2){
+                g2.includedGrammarScopes.forEach(function(s){
+                  if(s===g1.scopeName){
+                    console.log(g2.name,'scope',g2.scopeName,'includes',s);
+                  }
+                });
+              });
+            }
+          });
+        });
+      })('${1:fileExtension}');
+    """
