@@ -28,22 +28,23 @@
   'Scope By Extension':
     'prefix': 'scope'
     'body': """
-      (function(ex){
-        atom.grammars.grammars.forEach(function(g1){
-          g1.fileTypes.forEach(function(f){
-            if(f===ex){
-              console.log(g1.name,'is scope',g1.scopeName);
-              atom.grammars.grammars.forEach(function(g2){
-                g2.includedGrammarScopes.forEach(function(s){
-                  if(s===g1.scopeName){
-                    console.log(g2.name,'scope',g2.scopeName,'includes',s);
+      (function (ex) {
+        'use strict';
+        atom.grammars.grammars.forEach(function (g1) {
+          g1.fileTypes.forEach(function (f) {
+            if(f === ex) {
+              console.log(g1.name, 'is scope', g1.scopeName, 'with extensions', g1.fileTypes);
+              atom.grammars.grammars.forEach(function (g2) {
+                g2.includedGrammarScopes.forEach(function (s) {
+                  if (s === g1.scopeName) {
+                    console.log(g2.name, 'scope', g2.scopeName, 'includes', s);
                   }
                 });
               });
             }
           });
         });
-      })('${1:fileExtension}');
+      }('${1:fileExtension}'));
     """
 
 '.source.js':
