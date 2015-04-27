@@ -45,3 +45,29 @@
         });
       })('${1:fileExtension}');
     """
+
+'.source.js':
+  'Lint Header Block':
+    'prefix': 'lint'
+    'body': """
+      /*jslint browser: true, devel: true, indent: 2, maxlen: 82 */
+      /* jshint bitwise: true, curly: true, eqeqeq: true, es3: false,
+         forin: true, freeze: true, futurehostile: true, latedef: true,
+         maxcomplexity: 8, maxstatements: 35, noarg: true, nocomma: true,
+         noempty: true, nonew: true, singleGroups: true, undef: true, unused: true,
+         plusplus: true, strict: true, browser: true, devel: true
+      */
+      /*global net */
+    """
+
+'.source.js':
+  'Function comment header':
+    'prefix': 'head'
+    'body': """
+      /**
+       * ${1:function purpose}
+       *
+       * @param {${2:data type}} ${3:parameter name} ${4:parameter description}
+       * @return {${5:data type}}
+       */$0
+    """
