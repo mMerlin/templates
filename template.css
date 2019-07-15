@@ -20,7 +20,7 @@ Indent all block content
 Use a semicolon after every declaration for consistency and extensibility
 Always use a space after property name's colon, but no space between property and colon
 Always use a single space between the last selector and the opening brace that begins the declaration block.
-	".block-name {" not ".block-name{" or ".block-name{new-ling}{"
+	".block-name {" not ".block-name{" or ".block-name{new-line}{"
 Always start a new line for each selector and declaration.
 	h1,
 	h2,
