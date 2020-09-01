@@ -1,0 +1,39 @@
+/* A set of overrides for the formatting provided automatically by github.io */
+
+/* Use Alternate to box model, so specified sizes include border and padding */
+* {
+  box-sizing: border-box;
+}
+
+.markdown-body h1 {
+  margin-top: 0px;
+}
+
+.markdown-body > h1:first-child {
+  display: none;
+}
+
+.anchor {
+  padding: 0 1em 0 2em;
+  background-color: grey;
+}
+
+ul li {
+  margin: 0;
+}
+
+/* can't easily remove the bottom margin from the p element, so reverse it with a
+   negative top margin on the following list */
+li > p + ol, li > p + ul {
+  margin-top: -15;
+}
+
+ul ul, ul ol, ol ul {
+  margin-top: 0;
+}
+
+/* hide the marked content used to help with folded content in the editor */
+#functional-comment-block + p,
+#functional-comment-block {
+    Display: none;
+}
